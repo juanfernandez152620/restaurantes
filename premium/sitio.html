@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14110E">
+<meta name="description" content="Ánima · Cocina de autor en Yerba Buena, Tucumán. Reservá tu mesa online.">
+<title>Ánima · Cocina de autor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14110E;--ink-2:#2A241E;--cream:#F4EEE3;--paper:#FBF8F2;--gold:#C6A365;--gold-d:#A8813F;--muted:#8B8175;--line:rgba(198,163,101,.28);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,100% - 32px);margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.08}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 26px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.04em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--sans);transition:background .2s,color .2s}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#D7B57A}
+.btn-line{border-color:rgba(255,255,255,.55);color:#fff;background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+/* Navegación */
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .3s}
+.nav.solid{background:rgba(20,17,14,.92);backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:72px}
+.logo{font-family:var(--serif);font-size:28px;letter-spacing:.42em;color:#fff;text-decoration:none;font-weight:600}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.nav-links a:hover{color:#fff}
+.nav .btn{min-height:40px;padding:0 20px}
+/* Portada */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transform:scale(1.04)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,.6),rgba(20,17,14,.2) 40%,rgba(20,17,14,.92))}
+.hero .wrap{position:relative;z-index:1;padding:120px 0 80px}
+.hero h1{font-size:clamp(48px,8vw,104px);max-width:12ch;margin:18px 0}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero p{max-width:46ch;color:rgba(255,255,255,.82);font-size:17px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:56px;font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.06em}
+.hero-meta b{display:block;font-family:var(--serif);font-size:24px;color:#fff;font-weight:500;letter-spacing:0}
+/* Reservas */
+.res{background:var(--ink);color:var(--cream);padding:96px 0}
+.res .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.res h2{font-size:clamp(38px,5vw,60px);margin:14px 0 18px}
+.res-side p{color:rgba(244,238,227,.72)}
+.res-side ul{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-direction:column;gap:12px;color:rgba(244,238,227,.8);font-size:14.5px}
+.res-side li::before{content:'—';color:var(--gold);margin-right:10px}
+.form{background:#1D1915;border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form label{display:flex;flex-direction:column;gap:7px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{background:transparent;border:0;border-bottom:1px solid rgba(244,238,227,.25);color:#fff;font:inherit;font-size:16px;letter-spacing:0;text-transform:none;padding:8px 0;outline:none;border-radius:0}
+.form select option{color:#000}
+.form input:focus,.form select:focus,.form textarea:focus{border-bottom-color:var(--gold)}
+.form textarea{resize:vertical;min-height:60px}
+.times{display:flex;flex-wrap:wrap;gap:8px}
+.times button{padding:9px 15px;border-radius:999px;border:1px solid rgba(244,238,227,.25);background:transparent;color:var(--cream);font:inherit;font-size:14px;cursor:pointer;letter-spacing:0;text-transform:none}
+.times button.on{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600}
+.form .btn{grid-column:1/-1;margin-top:6px;min-height:54px;font-size:15px}
+.form .err{grid-column:1/-1;color:#F7A8A8;font-size:13.5px;min-height:1em;margin:0;letter-spacing:0;text-transform:none}
+.ok{display:none;background:#1D1915;border:1px solid var(--gold);border-radius:22px;padding:34px;text-align:center}
+.ok.show{display:block}
+.ok h3{font-size:38px;color:#fff;margin:12px 0}
+.ok .det{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0;text-align:center}
+.ok .det b{display:block;font-family:var(--serif);font-size:24px;color:var(--gold);font-weight:500}
+.ok .det span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,238,227,.6)}
+.ok p{color:rgba(244,238,227,.75);font-size:14.5px}
+.ok .demo{margin-top:20px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.ok .demo a{color:var(--gold)}
+/* Experiencia */
+.exp{padding:110px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.sec-head h2{font-size:clamp(36px,4.5vw,56px);margin-top:12px}
+.sec-head p{color:var(--muted)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.exp-card img{aspect-ratio:4/5;object-fit:cover;border-radius:4px;width:100%;background:#E8E0D2}
+.exp-card h3{font-size:28px;margin:18px 0 6px}
+.exp-card p{color:var(--muted);font-size:15px;margin:0}
+/* Carta */
+.carta{background:var(--cream);padding:110px 0}
+.dishes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px}
+.dish{display:flex;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(20,17,14,.1)}
+.dish img{width:92px;height:92px;border-radius:50%;object-fit:cover;flex:none;background:#E1D7C6}
+.dish h3{font-size:24px}
+.dish p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.dish .pr{margin-left:auto;font-family:var(--serif);font-size:22px;color:var(--gold-d);white-space:nowrap}
+.dish .tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);font-weight:600}
+.carta-cta{text-align:center;margin-top:44px}
+.carta-cta .btn{background:var(--ink);color:#fff}
+/* Chef */
+.chef{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:var(--ink);color:var(--cream)}
+.chef img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.chef-txt{padding:72px 64px;display:flex;flex-direction:column;justify-content:center}
+.chef blockquote{font-family:var(--serif);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:18px 0 22px;font-style:italic}
+.chef cite{font-style:normal;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
+/* Info */
+.info{padding:100px 0}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.info h3{font-size:30px;margin:10px 0 16px}
+.info p,.info li{color:var(--muted);font-size:15px;margin:0}
+.info ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.info li{display:flex;justify-content:space-between;border-bottom:1px solid rgba(20,17,14,.08);padding-bottom:8px}
+.info li b{color:var(--ink);font-weight:500}
+.info a.link{color:var(--gold-d);font-weight:600;text-decoration:none;display:inline-block;margin-top:14px;letter-spacing:.06em}
+footer{background:var(--ink);color:rgba(244,238,227,.6);padding:48px 0 36px;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+footer .logo{font-size:22px}
+footer details{width:100%;margin-top:10px}
+footer summary{cursor:pointer;color:rgba(244,238,227,.5)}
+footer details ul{columns:2;font-size:12px;padding-left:16px}
+footer details a{color:rgba(244,238,227,.6)}
+.demo-flag{position:fixed;right:14px;bottom:14px;z-index:30;background:var(--gold);color:var(--ink);font-size:12px;font-weight:600;padding:8px 14px;border-radius:999px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+@media (max-width:860px){
+  .nav-links{display:none}
+  .nav .btn{margin-left:auto}
+  .res .wrap,.chef,.info-grid,.exp-grid,.dishes{grid-template-columns:1fr}
+  .chef img{height:320px}
+  .chef-txt{padding:48px 22px}
+  .form{grid-template-columns:1fr;padding:22px}
+  .exp-card img{aspect-ratio:16/10}
+  .ok .det{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="wrap">
+  <a class="logo" href="#top">ÁNIMA</a>
+  <div class="nav-links"><a href="#experiencia">Experiencia</a><a href="#carta">La carta</a><a href="#info">Dónde estamos</a></div>
+  <a class="btn btn-gold" href="#reservar">Reservar</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <img data-ph="salon" data-w="1600" alt="El salón de Ánima">
+  <div class="wrap">
+    <span class="eyebrow">Cocina de autor · Yerba Buena</span>
+    <h1>Sabores del norte, <em>con alma.</em></h1>
+    <p>Carnes de pastura, pastas caseras y vinos de los Valles Calchaquíes, en un salón pensado para quedarse.</p>
+    <div class="hero-ctas"><a class="btn btn-gold" href="#reservar">Reservar una mesa</a><a class="btn btn-line" href="#carta">Ver la carta</a><a class="btn btn-line" href="index.html#delivery">Pedir delivery</a></div>
+    <div class="hero-meta"><span><b>Mar a dom</b>12 a 16 h · 20 a 00 h</span><span><b>4,8 ★</b>1.240 opiniones</span><span><b>Av. Aconquija 2040</b>Yerba Buena, Tucumán</span></div>
+  </div>
+</header>
+
+<section class="res" id="reservar"><div class="wrap">
+  <div class="res-side">
+    <span class="eyebrow">Reservas</span>
+    <h2>Tu mesa, esperándote.</h2>
+    <p>Elegí el día, la hora y cuántos son. Te confirmamos por WhatsApp al instante y te mandamos un recordatorio el día de la reserva.</p>
+    <ul><li>Grupos de más de 10 personas: escribinos por WhatsApp.</li><li>Opciones sin TACC y vegetarianas en toda la carta.</li><li>Las mesas se guardan 15 minutos.</li></ul>
+  </div>
+  <div>
+    <form class="form" id="form" novalidate>
+      <label>Día<input type="date" id="f-date" required></label>
+      <label>Personas<select id="f-pax"></select></label>
+      <label class="full">Horario<div class="times" id="f-times"></div></label>
+      <label>Nombre<input type="text" id="f-name" autocomplete="name" placeholder="Tu nombre"></label>
+      <label>WhatsApp<input type="tel" id="f-tel" autocomplete="tel" placeholder="381 …"></label>
+      <label>Ocasión<select id="f-occ"><option value="">Ninguna en especial</option><option>Cumpleaños</option><option>Aniversario</option><option>Negocios</option><option>Cita</option></select></label>
+      <label>Comentarios<textarea id="f-notes" placeholder="Celíacos, silla de bebé, preferís terraza…"></textarea></label>
+      <p class="err" id="f-err" role="alert"></p>
+      <button class="btn btn-gold" type="submit">Confirmar reserva</button>
+    </form>
+    <div class="ok" id="ok" role="status" aria-live="polite"></div>
+  </div>
+</div></section>
+
+<section class="exp" id="experiencia"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">La experiencia</span><h2>Una cocina que cuenta de dónde viene.</h2><p>Trabajamos con productores de los valles y de la llanura tucumana. Lo que está en temporada, está en la carta.</p></div>
+  <div class="exp-grid">
+    <article class="exp-card"><img data-ph="cocina" data-w="800" alt="La cocina abierta"><h3>Cocina abierta</h3><p>Parrilla a leña y horno de barro a la vista de todo el salón.</p></article>
+    <article class="exp-card"><img data-ph="malbec" data-w="800" alt="Copa de Malbec"><h3>Vinos del valle</h3><p>Una cava con más de 80 etiquetas de Cafayate, Amaicha y Colalao del Valle.</p></article>
+    <article class="exp-card"><img data-ph="lounge" data-w="800" alt="El salón"><h3>Salón y terraza</h3><p>Luz baja, música suave y una terraza con vista a los cerros.</p></article>
+  </div>
+</div></section>
+
+<section class="carta" id="carta"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">La carta</span><h2>Algunos de nuestros platos</h2><p>La carta completa, con precios al día, está en el QR de cada mesa.</p></div>
+  <div class="dishes" id="dishes"></div>
+  <div class="carta-cta"><a class="btn" href="index.html#qrMesa">Ver la carta completa</a></div>
+</div></section>
+
+<section class="chef"><img data-ph="bife" data-w="1200" alt="Bife de chorizo">
+  <div class="chef-txt"><span class="eyebrow">El chef</span><blockquote>"Cocinamos como en casa de la abuela, pero con el cuidado de quien quiere que vuelvas."</blockquote><cite>Ramiro · Chef de Ánima</cite></div>
+</section>
+
+<section class="info" id="info"><div class="wrap info-grid">
+  <div><span class="eyebrow">Horarios</span><h3>Cuándo venir</h3><ul><li><span>Lunes</span><b>Cerrado</b></li><li><span>Martes a jueves</span><b>12–16 · 20–00</b></li><li><span>Viernes y sábado</span><b>12–16 · 20–01</b></li><li><span>Domingo</span><b>12–16</b></li></ul></div>
+  <div><span class="eyebrow">Dónde estamos</span><h3>Yerba Buena</h3><p>Av. Aconquija 2040<br>Yerba Buena, Tucumán<br>Estacionamiento propio</p><a class="link" href="https://www.google.com/maps/search/?api=1&query=-26.8160,-65.2830" target="_blank" rel="noopener">Cómo llegar →</a></div>
+  <div><span class="eyebrow">Contacto</span><h3>Hablemos</h3><p>WhatsApp: 381 000-0000<br>Eventos privados y grupos grandes</p><a class="link" href="index.html#delivery">Pedí delivery a tu casa →</a></div>
+</div></section>
+
+<footer><div class="wrap">
+  <span class="logo">ÁNIMA</span><span>© Ánima · Cocina de autor · Demo hecha con sanguapp</span>
+  <details><summary>Créditos de las fotos (Wikimedia Commons, licencias libres)</summary><ul id="credits"></ul></details>
+</div></footer>
+<a class="demo-flag" href="index.html">Ver la app del restaurante →</a>
+
+<script>
+'use strict';
+// Fotos con licencia libre (Wikimedia Commons)
+const PH = {
+  salon: ['Thana_fine_dining_interior_dining_2.png', 'Askeja', 'CC BY-SA 4.0'], lounge: ['Thana_fine_dining_interior_-_ODA.png', 'Askeja', 'CC BY-SA 4.0'],
+  cocina: ['Thana_fine_dining_interior_-_open_kitchen.jpg', 'Askeja', 'CC BY-SA 4.0'], malbec: ['Glass_of_Malbec.jpg', 'Ed Yourdon', 'CC BY-SA 2.0'],
+  bife: ['La_Vaca_Loca_300_Bife_de_Chorizo_Sirloin_Steak.jpg', 'Yotam Nachum', 'CC0'], empanadas: ['Tucumanas.jpg', 'Vladimir huasco', 'CC BY-SA 4.0'],
+  humita: ['Humitas_en_chala_tipicas_de_Argentina8.JPG', 'Marcos Katz', 'CC BY 3.0'], risotto: ['Risotto_de_foie_y_hongos,_Madrid,_2018.jpg', 'Benjamín Núñez González', 'CC BY-SA 4.0'],
+  sorr: ['Sorrentinos_de_ricota.jpg', 'Horacio Cambeiro', 'CC BY-SA 4.0'], locro: ['Locro_argentino,_plato_tradicional.jpg', 'Horacio Cambeiro', 'CC BY-SA 3.0'],
+  volcan: ['Chocolate_lava_cake.jpg', 'sanctumsolitude', 'CC BY 2.0'],
+};
+const url = (k, w) => 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(PH[k][0]) + '?width=' + w;
+document.querySelectorAll('img[data-ph]').forEach(img => { img.src = url(img.dataset.ph, img.dataset.w); img.loading = 'lazy'; });
+document.getElementById('credits').innerHTML = Object.values(PH).map(([f, a, l]) => `<li><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(f)}" target="_blank" rel="noopener">${f.replace(/_/g, ' ').replace(/\.\w+$/, '')}</a> · ${a} · ${l}</li>`).join('');
+const money = n => '$ ' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const DISHES = [
+  ['empanadas', 'Empanadas tucumanas', 'Carne cortada a cuchillo, horno de barro.', 9600, 'Del chef'],
+  ['humita', 'Humita en chala', 'Choclo, zapallo y queso de cabra de Tafí.', 9800, 'Sin TACC'],
+  ['bife', 'Bife de chorizo 400 g', 'Novillo de pastura, a la parrilla.', 32000, 'Del chef'],
+  ['locro', 'Locro del norte', 'Maíz blanco, zapallo y quiquirimichi.', 18500, ''],
+  ['sorr', 'Sorrentinos de ricota y nuez', 'Pasta casera, salsa a elección.', 21000, 'Vegetariano'],
+  ['risotto', 'Risotto de hongos de pino', 'Hongos de los cerros y parmesano.', 24500, 'Sin TACC'],
+];
+document.getElementById('dishes').innerHTML = DISHES.map(([k, n, d, p, t]) => `<article class="dish"><img src="${url(k, 240)}" alt="" loading="lazy"><div>${t ? `<span class="tag">${t}</span>` : ''}<h3>${n}</h3><p>${d}</p></div><span class="pr">${money(p)}</span></article>`).join('');
+// Navegación que se oscurece al bajar
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
+// Formulario de reserva
+const pad = n => String(n).padStart(2, '0'), today = new Date(), iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const fDate = document.getElementById('f-date'), fPax = document.getElementById('f-pax'), fTimes = document.getElementById('f-times');
+fDate.min = iso(today); fDate.value = iso(today);
+fPax.innerHTML = Array.from({ length: 10 }, (_, i) => `<option value="${i + 1}" ${i === 1 ? 'selected' : ''}>${i + 1} ${i ? 'personas' : 'persona'}</option>`).join('');
+const HOURS = ['12:30', '13:00', '13:30', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'];
+let time = '21:00';
+const drawTimes = () => { fTimes.innerHTML = HOURS.map(h => `<button type="button" class="${h === time ? 'on' : ''}" data-h="${h}">${h}</button>`).join(''); };
+fTimes.addEventListener('click', e => { const b = e.target.closest('button'); if (b) { time = b.dataset.h; drawTimes(); } });
+drawTimes();
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim(), err = document.getElementById('f-err');
+  if (!v('f-name')) { err.textContent = 'Contanos tu nombre.'; return; }
+  if (v('f-tel').replace(/\D/g, '').length < 8) { err.textContent = 'Dejanos un WhatsApp válido para confirmarte.'; return; }
+  if (!fDate.value || fDate.value < iso(today)) { err.textContent = 'Elegí un día desde hoy en adelante.'; return; }
+  err.textContent = '';
+  const r = { date: fDate.value, time, pax: fPax.value, name: v('f-name'), tel: v('f-tel'), occ: v('f-occ'), notes: v('f-notes') };
+  try { const list = JSON.parse(localStorage.getItem('anima_reservas') || '[]'); list.push(r); localStorage.setItem('anima_reservas', JSON.stringify(list)); } catch (x) { /* sin almacenamiento: la demo igual confirma */ }
+  const d = new Date(r.date + 'T00:00'), dia = d.toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long' });
+  const ok = document.getElementById('ok');
+  ok.innerHTML = `<span class="eyebrow">Reserva recibida</span><h3>¡Gracias, ${r.name.split(' ')[0]}!</h3>
+    <div class="det"><div><b>${dia}</b><span>Día</span></div><div><b>${r.time} h</b><span>Horario</span></div><div><b>${r.pax}</b><span>Personas</span></div></div>
+    <p>Te mandamos la confirmación por WhatsApp al ${r.tel}. El día de la reserva te llega un recordatorio para confirmar.</p>
+    <p class="demo">Demo: si abrís <a href="index.html">la app del restaurante</a> en este mismo navegador y entrás como Laura, la reserva aparece en <b>Reservas</b> como "Nueva desde la web" (si es para hoy o mañana).</p>`;
+  document.getElementById('form').style.display = 'none'; ok.classList.add('show');
+});
+</script>
+</body>
+</html>
